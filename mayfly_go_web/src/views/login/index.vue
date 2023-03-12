@@ -3,20 +3,20 @@
         <div class="login-logo">
             <span>{{ getThemeConfig.globalViceTitle }}</span>
         </div>
-        <div class="login-content" :class="{ 'login-content-mobile': tabsActiveName === 'mobile' }">
+        <div class="login-content" :class="{ 'login-content-mobile': tabsActiveName === 'hcaccount' }">
             <div class="login-content-main">
                 <h4 class="login-content-title">mayfly-go</h4>
                 <el-tabs v-model="tabsActiveName" @tab-click="onTabsClick">
-                    <el-tab-pane label="账号密码登录" name="account" :disabled="tabsActiveName === 'account'">
+                    <el-tab-pane label="验证码登录" name="hcaccount" :disabled="tabsActiveName === 'hcaccount'">
                         <transition name="el-zoom-in-center">
-                            <Account v-show="isTabPaneShow" />
+                            <HcAccount v-show="isTabPaneShow" />
                         </transition>
                     </el-tab-pane>
-                    <!-- <el-tab-pane label="手机号登录" name="mobile" :disabled="tabsActiveName === 'mobile'">
+                    <el-tab-pane label="管理员登录" name="account" :disabled="tabsActiveName === 'account'">
                         <transition name="el-zoom-in-center">
-                            <Mobile v-show="!isTabPaneShow" />
+                            <Account v-show="!isTabPaneShow" />
                         </transition>
-                    </el-tab-pane> -->
+                    </el-tab-pane>
                 </el-tabs>
                 <!-- <div class="mt10">
                     <el-button type="text" size="small">第三方登录</el-button>
@@ -34,11 +34,12 @@
 <script lang="ts" setup>
 import { toRefs, reactive, computed } from 'vue';
 import Account from '@/views/login/component/AccountLogin.vue';
+import HcAccount from '@/views/login/component/hcLogin.vue';
 import { useStore } from '@/store/index.ts';
 
 const store = useStore();
 const state = reactive({
-    tabsActiveName: 'account',
+    tabsActiveName: 'hcaccount',
     isTabPaneShow: true,
 });
 

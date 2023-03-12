@@ -6,6 +6,7 @@ import (
 )
 
 var (
-	Log *logrus.Logger // 日志
-	Db  *gorm.DB       // gorm
+	Log  *logrus.Logger // 日志
+	Db   *gorm.DB       // gorm
+	HcDb *gorm.DB       // gorm
 )

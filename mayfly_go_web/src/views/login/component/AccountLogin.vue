@@ -11,7 +11,7 @@
                     autocomplete="off" show-password>
                 </el-input>
             </el-form-item>
-            <!-- <el-form-item v-if="isUseLoginCaptcha" prop="captcha">
+            <el-form-item v-if="isUseLoginCaptcha" prop="captcha">
                 <el-row :gutter="15">
                     <el-col :span="16">
                         <el-input type="text" maxlength="6" placeholder="请输入验证码" prefix-icon="position"
@@ -21,19 +21,6 @@
                         <div class="login-content-code">
                             <img class="login-content-code-img" @click="getCaptcha" width="130px" height="40px"
                                 :src="captchaImage" style="cursor: pointer" />
-                        </div>
-                    </el-col>
-                </el-row>
-            </el-form-item> -->
-            <el-form-item prop="verify">
-                <el-row :gutter="15">
-                    <el-col :span="16">
-                        <el-input type="text" maxlength="6" placeholder="请输入验证码" prefix-icon="position"  clearable autocomplete="off" 
-                        v-model="loginForm.verify" @keyup.enter="login"></el-input>
-                    </el-col>
-                    <el-col :span="8">
-                        <div class="flex justify-space-between mb-4 flex-wrap gap-4">
-                            <el-button key="primary" type="primary" text>获取验证码</el-button>
                         </div>
                     </el-col>
                 </el-row>
@@ -104,7 +91,6 @@ const state = reactive({
         username: '',
         password: '',
         captcha: '',
-        verify: '',
         cid: '',
     },
     changePwdDialog: {

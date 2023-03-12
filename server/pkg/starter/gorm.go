@@ -14,11 +14,12 @@ import (
 )
 
 func initDb() {
-	global.Db = gormMysql()
+	global.Db = gormMysql(config.Conf.Mysql)
+	global.HcDb = gormMysql(config.Conf.HcMysql)
 }
 
-func gormMysql() *gorm.DB {
-	m := config.Conf.Mysql
+func gormMysql(sqlConf *config.Mysql) *gorm.DB {
+	m := sqlConf
 	if m == nil || m.Dbname == "" {
 		global.Log.Panic("未找到数据库配置信息")
 		return nil

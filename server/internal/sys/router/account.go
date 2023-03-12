@@ -27,6 +27,20 @@ func InitAccountRouter(router *gin.RouterGroup) {
 				Handle(a.Login)
 		})
 
+		// 发送验证码
+		account.POST("sendCode", func(c *gin.Context) {
+			req.NewCtxWithGin(c).Handle(a.SendCode)
+		})
+
+		// 验证码验证登录
+		hcloginLog := req.NewLogInfo("hc用户登录").WithSave(true)
+		account.POST("hclogin", func(g *gin.Context) {
+			req.NewCtxWithGin(g).
+				WithNeedToken(false).
+				WithLog(hcloginLog).
+				Handle(a.HcLogin)
+		})
+
 		changePwdLog := req.NewLogInfo("用户修改密码").WithSave(true)
 		account.POST("change-pwd", func(g *gin.Context) {
 			req.NewCtxWithGin(g).

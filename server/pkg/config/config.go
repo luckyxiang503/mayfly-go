@@ -37,12 +37,13 @@ type CmdConfigParam struct {
 
 // yaml配置文件映射对象
 type Config struct {
-	Server *Server `yaml:"server"`
-	Jwt    *Jwt    `yaml:"jwt"`
-	Aes    *Aes    `yaml:"aes"`
-	Mysql  *Mysql  `yaml:"mysql"`
-	Redis  *Redis  `yaml:"redis"`
-	Log    *Log    `yaml:"log"`
+	Server  *Server `yaml:"server"`
+	Jwt     *Jwt    `yaml:"jwt"`
+	Aes     *Aes    `yaml:"aes"`
+	Mysql   *Mysql  `yaml:"mysql"`
+	HcMysql *Mysql  `yaml:"hcmysql"`
+	Redis   *Redis  `yaml:"redis"`
+	Log     *Log    `yaml:"log"`
 }
 
 // 配置文件内容校验
