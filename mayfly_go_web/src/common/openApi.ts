@@ -2,7 +2,7 @@ import request from './request'
 
 export default {
     login: (param: any) => request.request('POST', '/sys/accounts/login', param),
-    sendCode: (param: any) => request.request('POST', '/sys/accounts/getcode', param),
+    sendCode: (param: any) => request.request('POST', '/sys/accounts/sendcode', param),
     hclogin: (param: any) => request.request('POST', '/sys/accounts/hclogin', param),
     changePwd: (param: any) => request.request('POST', '/sys/accounts/change-pwd', param),
     getPublicKey: () => request.request('GET', '/common/public-key'),

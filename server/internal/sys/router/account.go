@@ -28,8 +28,8 @@ func InitAccountRouter(router *gin.RouterGroup) {
 		})
 
 		// 发送验证码
-		account.POST("sendCode", func(c *gin.Context) {
-			req.NewCtxWithGin(c).Handle(a.SendCode)
+		account.POST("sendcode", func(g *gin.Context) {
+			req.NewCtxWithGin(g).WithNeedToken(false).Handle(a.SendCode)
 		})
 
 		// 验证码验证登录
